@@ -1,3 +1,18 @@
-.custom-height {
-    height: 85vh; /* 90% of the viewport height */
+/* Default height for smaller devices */
+.advert-list-container {
+  height: 60vh; /* 50% of the viewport height */
+}
+
+/* Adjust height for iPads */
+@media (min-width: 768px) {
+  .advert-list-container {
+    height: 75vh; /* Adjust as needed */
   }
+}
+
+/* Adjust height for larger screens */
+@media (min-width: 1024px) {
+  .advert-list-container {
+    height: 80vh; /* Adjust as needed */
+  }
+}

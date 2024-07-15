@@ -66,7 +66,7 @@ namespace unibooks_backend.Controllers
 
             var adverts = await _advertRepo.GetAllAsync(query);
 
-            return Ok(adverts);
+            return Ok(adverts.Select(a=>a.ToAdvertDto()));
         }
 
         [HttpGet("{id:int}")]
@@ -84,7 +84,7 @@ namespace unibooks_backend.Controllers
                 return NotFound();
             }
 
-            return Ok(advert);
+            return Ok(advert.ToAdvertDto());
         }
 
         [HttpDelete("{id:int}")]

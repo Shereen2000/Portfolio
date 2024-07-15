@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("unibooks-backend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f723f92e9fff144bb4be5b9cfe7e3f37080673f6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a7a3d09edd01fdb886e2930d11ca9d72a39707a7")]
 [assembly: System.Reflection.AssemblyProductAttribute("unibooks-backend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("unibooks-backend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using unibooks_backend.Dtos.Advert;
+using unibooks_backend.Dtos.AdvertPicture;
 using unibooks_backend.Models;
 
 namespace unibooks_backend.Mappers
@@ -17,7 +18,20 @@ namespace unibooks_backend.Mappers
                 Price = advertModel.Price,
                 Condition = advertModel.Condition,
                 CreatedOn = advertModel.CreatedOn,
-                BookId = advertModel.BookId,   
+                BookId = advertModel.BookId,
+                Advertimages = advertModel.BookImages.Select(a => a.ToPictureDto()).ToList(),
+                ISBN = advertModel.Book.ISBN,
+                CoverUrl = advertModel.Book.CoverUrl,
+                Title = advertModel.Book.Title
+               
+            };
+        }
+
+        public static AdvertPictureDto ToPictureDto(this BookImage bookImage)
+        {
+            return new AdvertPictureDto
+            {
+                Url = bookImage.Url,
             };
         }
 

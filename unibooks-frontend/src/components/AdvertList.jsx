@@ -1,15 +1,44 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import AdvertCard from './AdvertCard'
 import '../components/styles.css'
+import { fetchAdverts } from '../api/requests'
 
-const AdvertList = () => {
+const AdvertList = ({searchBy, filters}) => {
 
-  const x  = [1,1,2,3,4,4,5,5,6,7,4,1,2,3,4,4,5,3,5,3,5,6,6,6,7,8,4,7,3,6,3,6,2,5,7,9,3]
+  const [adverts, setAdverts] = useState([]);
+
+
+ // console.log(searchBy)
+  console.log(filters)
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const query = {
+          sortBy: null,
+          title: null,
+          publisher: null,
+          isDescending: false,
+        };
+        const fetchedAdverts = await fetchAdverts(query);
+        setAdverts(fetchedAdverts);
+
+        //console.log(fetchedAdverts)
+
+      } catch (error) {
+        console.error('Error fetching adverts:', error);
+      }
+    };
+
+    fetchData();
+  }, []); 
+
+
   return (
-    <div className='p-5 custom-height overflow-y-auto '>
+    <div className='p-5 advert-list-container overflow-y-auto w-full'>
     
-          {x.map((item, index) => (
-            <AdvertCard key={index} />
+          {adverts.map((advert, index) => (
+            <AdvertCard key={index} advert = {advert} />
           ))}
     
     </div>
